@@ -102,9 +102,9 @@ openstack endpoint create --region "$OS_OBJECTSTORE_SERVICE_REGION" 'object-stor
 openstack endpoint create --region "$OS_OBJECTSTORE_SERVICE_REGION" 'object-store' admin    "$OS_OBJECTSTORE_URL_ADMIN"
 # Demo user
 openstack domain create "$OS_USER_DEMO_DOMAIN"
-openstack project create "$OS_USER_DEMO_PROJECT"
-openstack user create --password "$OS_USER_DEMO_PASSWD" --project "$OS_USER_DEMO_PROJECT" "$OS_USER_DEMO_USERNAME"
-openstack role add --user "$OS_USER_DEMO_USERNAME" --project "$OS_USER_DEMO_PROJECT" "$OS_USER_DEMO_ROLE"
+openstack project create "$OS_USER_DEMO_PROJECT" --domain "$OS_USER_DEMO_DOMAIN"
+openstack user create --password "$OS_USER_DEMO_PASSWD" --domain "$OS_USER_DEMO_DOMAIN" --project "$OS_USER_DEMO_PROJECT" "$OS_USER_DEMO_USERNAME"
+openstack role add --user "$OS_USER_DEMO_USERNAME" --project-domain "$OS_USER_DEMO_DOMAIN" --project "$OS_USER_DEMO_PROJECT" "$OS_USER_DEMO_ROLE"
 
 echo '> Starting Keystone public service ...'
 /usr/bin/keystone-wsgi-public --port 5000
