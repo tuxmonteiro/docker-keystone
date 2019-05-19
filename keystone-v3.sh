@@ -56,7 +56,6 @@ keystone-manage db_sync
 keystone-manage bootstrap \
   --bootstrap-project-name "$OS_IDENTITY_ADMIN_PROJECT" \
   --bootstrap-username "$OS_IDENTITY_ADMIN_USERNAME" \
-  --bootstrap-username "$OS_IDENTITY_ADMIN_USERNAME" \
   --bootstrap-password "$OS_IDENTITY_ADMIN_PASSWD" \
   --bootstrap-role-name "$OS_IDENTITY_ADMIN_ROLE" \
   --bootstrap-service-name "$OS_IDENTITY_SERVICE_NAME" \
